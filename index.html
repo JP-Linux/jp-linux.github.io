@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jorge Paulo | Portfólio de Programas</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="src/css/fonts.css">
+    <link rel="stylesheet" href="src/css/main.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <i class="fas fa-code logo-icon" aria-hidden="true"></i>
+                    <span>JP-Linux</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#" class="active">Início</a></li>
+                    <li><a href="#programs">Programas</a></li>
+                    <li><a href="#about">Sobre</a></li>
+                    <li><a href="#contact">Contato</a></li>
+                </ul>
+                <div class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Jorge Paulo Santos</h1>
+            <h2>Portfólio de Programas</h2>
+            <p>Bem-vindo ao meu repositório de projetos.</p>
+
+            <div class="filters">
+                <button class="filter-btn active" data-filter="all">
+                    <i class="fas fa-layer-group" aria-hidden="true"></i> Todos
+                </button>
+                <button class="filter-btn" data-filter="java">
+                    <i class="fab fa-java" aria-hidden="true"></i> Java
+                </button>
+                <button class="filter-btn" data-filter="cpp">
+                    <i class="fas fa-c" aria-hidden="true"></i> C/C++
+                </button>
+                <button class="filter-btn" data-filter="rust">
+                    <i class="fab fa-rust" aria-hidden="true"></i> Rust
+                </button>
+                <button class="filter-btn" data-filter="python">
+                    <i class="fab fa-python" aria-hidden="true"></i> Python
+                </button>
+                <button class="filter-btn" data-filter="shell">
+                    <i class="fab fa-linux" aria-hidden="true"></i> Shell
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section id="programs">
+        <div class="container">
+            <h2>Meus Programas</h2>
+            <div class="programs-grid" id="programs-grid">
+                <!-- Os programas serão inseridos via JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2>Sobre Mim</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Estudante de Ciência da Computação com foco na excelência técnica e na entrega de soluções elegantes. Em lógica matemática avançada, otimizei algoritmos para máxima performance. No universo do Arduino, Raspberry Pi e ESP32, combino hardware e segurança com práticas de pentest para expandir meus horizontes e garantir sistemas mais resilientes.</p>
+
+                    <p>Fora do código, encontro inspiração em astronomia, psicologia e artes, que alimentam minha criatividade.</p>
+
+                    <div class="skills-grid" id="skills-grid"></div>
+                </div>
+                <div class="about-image">
+                    <img src="src/assets/images/workspace.avif" alt="Espaço de trabalho com computador e equipamentos de desenvolvimento" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content" id="footer-content"></div>
+            <div class="copyright">
+                <p>&copy; 2025 JP-Linux - Desenvolvido por Jorge Paulo Santos</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="src/js/main.js"></script>
+</body>
+</html>
