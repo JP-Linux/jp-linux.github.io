@@ -65,6 +65,39 @@ const programsData = [
         date: "16/07/2025",
         downloadLink: "https://github.com/JP-Linux/regra_de_tres/archive/refs/heads/main.zip",
         sourceLink: "https://github.com/JP-Linux/regra_de_tres"
+    },
+    {
+        id: 7,
+        title: "Limpar Cache Arch Linux",
+        lang: "shell",
+        icon: "fab fa-linux",
+        description: "Este script automatiza a limpeza do cache de pacotes do pacman, verificando regularmente o espaço utilizado e oferecendo opções de limpeza quando o tamanho excede um limite configurável (6GB por padrão).",
+        version: "1.0.0",
+        date: "08/06/2025",
+        downloadLink: "https://github.com/JP-Linux/limpar-cache-archlinux/releases/tag/v1.0.0p",
+        sourceLink: "https://github.com/JP-Linux/limpar-cache-archlinux"
+    },
+    {
+        id: 8,
+        title: "KeyBin",
+        lang: "cpp",
+        icon: "fab fa-c",
+        description: "Teclado Matricial com Saída Binária<br><br>Projeto Arduino que converte pressionamentos de teclas em sinais binários de 4 bits, ideal para controle de displays digitais ou interfaces simples.",
+        version: "1.0.0",
+        date: "12/06/2025",
+        downloadLink: "https://github.com/JP-Linux/teclado_matricial_com_saida_binaria/archive/refs/heads/main.zip",
+        sourceLink: "https://github.com/JP-Linux/teclado_matricial_com_saida_binaria"
+    },
+    {
+        id: 9,
+        title: "Calculadora Obstétrica - (DPP)",
+        lang: "python",
+        icon: "fab fa-python",
+        description: "Ferramenta clínica para cálculo da Data Provável do Parto (DPP), idade gestacional e trimestre de gravidez, seguindo a Regra de Naegele.",
+        version: "1.0.0",
+        date: "13/04/2025",
+        downloadLink: "https://github.com/JP-Linux/Calculadora-Obstetrica/archive/refs/heads/main.zip",
+        sourceLink: "https://github.com/JP-Linux/Calculadora-Obstetrica"
     }
 ];
 
