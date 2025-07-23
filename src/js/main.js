@@ -5,7 +5,7 @@ const programsData = [
         title: "Jogo da velha",
         lang: "java",
         icon: "fab fa-java",
-        description: "Um clássico Jogo da Velha implementado em Java com interface gráfica usando Swing, oferecendo dois modos de jogo: contra outro jogador ou contra a máquina.<br><br><br>",
+        description: "Um clássico Jogo da Velha implementado em Java com interface gráfica usando Swing, oferecendo dois modos de jogo: contra outro jogador ou contra a máquina.",
         version: "1.0.0",
         date: "20/06/2025",
         downloadLink: "https://github.com/JP-Linux/jogo-da-velha-java/releases/download/v1.0.0/JogoDaVelha-1.0-0.jar",
@@ -27,7 +27,7 @@ const programsData = [
         title: "Download Audio e Vídeo",
         lang: "rust",
         icon: "fab fa-rust",
-        description: "Um utilitário simples e eficiente em Rust para download de conteúdo multimídia usando o poderoso yt-dlp como backend.<br><br><br><br>",
+        description: "Um utilitário simples e eficiente em Rust para download de conteúdo multimídia usando o poderoso yt-dlp como backend.",
         version: "1.0.0",
         date: "20/07/2025",
         downloadLink: "https://github.com/JP-Linux/download_audio_video/releases/tag/v1.0.0",
@@ -38,7 +38,7 @@ const programsData = [
         title: "Teste DNS",
         lang: "python",
         icon: "fab fa-python",
-        description: "Um script Python avançado para testar o desempenho e confiabilidade de servidores DNS listados em um arquivo JSON. Realiza testes paralelos, gera relatórios detalhados e fornece análises estatísticas.<br><br>",
+        description: "Um script Python avançado para testar o desempenho e confiabilidade de servidores DNS listados em um arquivo JSON. Realiza testes paralelos, gera relatórios detalhados e fornece análises estatísticas.",
         version: "1.0.0",
         date: "17/07/2025",
         downloadLink: "https://github.com/JP-Linux/teste_dns/archive/refs/heads/main.zip",
@@ -60,7 +60,7 @@ const programsData = [
         title: "Regra de Três",
         lang: "python",
         icon: "fab fa-python",
-        description: "Uma aplicação gráfica simples para resolver problemas de proporcionalidade usando a regra de três, desenvolvida em Python com Tkinter.<br><br><br>",
+        description: "Uma aplicação gráfica simples para resolver problemas de proporcionalidade usando a regra de três, desenvolvida em Python com Tkinter.",
         version: "0.2.0",
         date: "16/07/2025",
         downloadLink: "https://github.com/JP-Linux/regra_de_tres/archive/refs/heads/main.zip",
@@ -141,7 +141,7 @@ function renderPrograms(filter = 'all') {
                 <h3>${program.title}</h3>
             </div>
             <div class="card-body">
-                <p>${program.description}</p>
+                <p class="primeiro-paragrafo">${program.description}</p>
                 <p><strong>Versão:</strong> ${program.version}</p>
                 <p><strong>Data:</strong> ${program.date}</p>
             </div>

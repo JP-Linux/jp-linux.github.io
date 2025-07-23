@@ -211,6 +211,10 @@ nav {
     padding: 1.5rem;
 }
 
+.card-body p.primeiro-paragrafo {
+    height: 13rem;
+}
+
 .card-footer {
     padding: 1.5rem;
     background: rgba(0, 0, 0, 0.2);
