@@ -106,7 +106,7 @@ const skillsData = [
     {
         name: "Systems Programming",
         icon: "fas fa-microchip",
-        tech: "C, C++, Rust, Assembly"
+        tech: "C, C++, Rust, Assembly, Shell"
     },
     {
         name: "Backend",
@@ -116,7 +116,7 @@ const skillsData = [
     {
         name: "Databases",
         icon: "fas fa-database",
-        tech: "PostgreSQL, Redis, MongoDB"
+        tech: "PostgreSQL, Redis, MongoDB, Sqlite"
     },
     {
         name: "DevOps",
