@@ -157,38 +157,60 @@ const footerData = {
 function renderPrograms(filter = 'all') {
     const grid = document.getElementById('programs-grid');
     grid.innerHTML = '';
-    
-    const filteredPrograms = filter === 'all' 
-        ? programsData 
-        : programsData.filter(p => p.lang === filter);
-    
-    filteredPrograms.forEach(program => {
-        const card = document.createElement('div');
-        card.className = 'program-card';
-        card.dataset.lang = program.lang;
-        card.innerHTML = `
-            <div class="card-header">
-                <div class="lang-icon ${program.lang}">
-                    <i class="${program.icon}"></i>
+
+    // Skeleton loading
+    for (let i = 0; i < 6; i++) {
+        grid.innerHTML += `
+            <div class="program-card skeleton">
+                <div class="card-header">
+                    <div class="lang-icon"></div>
+                    <h3></h3>
                 </div>
-                <h3>${program.title}</h3>
-            </div>
-            <div class="card-body">
-                <p class="primeiro-paragrafo">${program.description}</p>
-                <p><strong>Versão:</strong> ${program.version}</p>
-                <p><strong>Data:</strong> ${program.date}</p>
-            </div>
-            <div class="card-footer">
-                <a href="${program.downloadLink}" class="btn btn-primary" download>
-                    <i class="fas fa-download"></i> Download
-                </a>
-                <a href="${program.sourceLink}" class="btn btn-secondary" target="_blank">
-                    <i class="fas fa-code"></i> Source
-                </a>
-            </div>
-        `;
-        grid.appendChild(card);
-    });
+                <div class="card-body">
+                  <p></p><p></p><p></p>
+                </div>
+                <div class="card-footer">
+                  <div class="btn"></div>
+                  <div class="btn"></div>
+                </div>
+              </div>
+            `;
+          }
+    setTimeout(() => {
+        grid.innerHTML = '';
+
+        const filteredPrograms = filter === 'all'
+            ? programsData
+            : programsData.filter(p => p.lang === filter);
+
+        filteredPrograms.forEach(program => {
+            const card = document.createElement('div');
+            card.className = 'program-card';
+            card.dataset.lang = program.lang;
+            card.innerHTML = `
+                <div class="card-header">
+                    <div class="lang-icon ${program.lang}">
+                        <i class="${program.icon}"></i>
+                    </div>
+                    <h3>${program.title}</h3>
+                </div>
+                <div class="card-body">
+                    <p class="primeiro-paragrafo">${program.description}</p>
+                    <p><strong>Versão:</strong> ${program.version}</p>
+                    <p><strong>Data:</strong> ${program.date}</p>
+                </div>
+                <div class="card-footer">
+                    <a href="${program.downloadLink}" class="btn btn-primary" download>
+                        <i class="fas fa-download"></i> Download
+                    </a>
+                    <a href="${program.sourceLink}" class="btn btn-secondary" target="_blank">
+                        <i class="fas fa-code"></i> Source
+                    </a>
+                </div>
+            `;
+            grid.appendChild(card);
+        });
+    }, 300);
 }
 
 // Função para renderizar as habilidades
