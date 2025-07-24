@@ -3,7 +3,7 @@
     --primary: #1a1c2c;
     --secondary: #2d3250;
     --accent: #6c5ce7;
-    --light: #f1f5f9;
+    --light: #f8fafc;
     --dark: #0d1117;
     --success: #00b894;
     --warning: #fdcb6e;
@@ -189,10 +189,18 @@ nav {
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.program-card:hover {
+/*.program-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-    border-color: rgba(108, 92, 231, 0.5);
+
+
+}*/
+
+@media (hover: hover) and (pointer: fine) {
+    .program-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        border-color: rgba(108, 92, 231, 0.5);
+    }
 }
 
 .card-header {
@@ -209,6 +217,7 @@ nav {
 .cpp { color: #649ad2; }
 .rust { color: #dea584; }
 .python { color: #4584b6; }
+.shell { color: #149414}
 
 .card-body {
     padding: 1.5rem;
@@ -458,6 +467,44 @@ footer {
         display: flex;
     }
 }
+
+/* Adicionar estilos para skeleton */
+.skeleton .lang-icon,
+.skeleton h3,
+.skeleton p,
+.skeleton .btn {
+    background: linear-gradient(90deg, #2d3250 25%, #3a4060 50%, #2d3250 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+    border-radius: 4px;
+    color: transparent !important;
+}
+
+.skeleton .lang-icon {
+    width: 40px;
+    height: 40px;
+}
+
+.skeleton h3 {
+    height: 24px;
+    width: 70%;
+}
+
+.skeleton p {
+    height: 16px;
+    margin-bottom: 10px;
+}
+
+.skeleton .btn {
+    width: 100px;
+    height: 36px;
+}
+
+@keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+
 
 /* ANIMAÇÕES OTIMIZADAS */
 @media (prefers-reduced-motion: reduce) {
