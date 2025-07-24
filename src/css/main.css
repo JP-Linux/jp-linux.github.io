@@ -452,8 +452,11 @@ footer {
 }
 
 /* ANIMAÇÕES OTIMIZADAS */
-.program-card, .skill-card {
-    will-change: transform;
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
 }
 
 /* ESTILOS ADICIONAIS PARA MOBILE MENU */
