@@ -99,6 +99,14 @@ nav {
     font-size: 2.2rem;
 }
 
+img {
+    opacity: 1;
+}
+
+img.loaded {
+
+}
+
 .nav-links {
     display: flex;
     gap: 2rem;
@@ -217,8 +225,7 @@ nav {
 .cpp { color: #649ad2; }
 .rust { color: #dea584; }
 .python { color: #4584b6; }
-.shell { color: #149414}
-
+.shell { color: #89e051; }
 .card-body {
     padding: 1.5rem;
 }
@@ -384,6 +391,49 @@ footer {
     font-size: 0.9rem;
 }
 
+/* Melhorar estilo da paginação */
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.pagination button {
+    padding: 0.5rem 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--accent);
+    color: var(--light);
+    border-radius: 4px;
+    cursor: pointer;
+    min-width: 40px;
+    transition: var(--transition);
+}
+
+.pagination button.active {
+    background: var(--accent);
+    font-weight: bold;
+}
+
+.pagination button:hover:not(.active) {
+    background: rgba(108, 92, 231, 0.2);
+}
+
+/* Adicionar seção organizada */
+/* ===== COMPONENTES ===== */
+.btn { /* ... */ }
+.program-card { /* ... */ }
+.skill-card { /* ... */ }
+
+/* ===== LAYOUT ===== */
+.container { /* ... */ }
+.programs-grid { /* ... */ }
+
+/* ===== PÁGINAS ===== */
+section.hero { /* ... */ }
+section#programs { /* ... */ }
+
 /* RESPONSIVIDADE */
 @media (max-width: 992px) {
     .about-content {
@@ -420,11 +470,13 @@ footer {
 .shell { color: #89e051; }
 
 /* MELHORIAS DE RESPONSIVIDADE */
+/* Ajustar altura do card em mobile */
 @media (max-width: 768px) {
     .card-body p.primeiro-paragrafo {
-        height: auto;
-        min-height: 8rem;
+        height: auto !important;
+        min-height: 100px;
     }
+
     h1 {
         font-size: 2.5rem;
     }
@@ -469,7 +521,7 @@ footer {
 }
 
 /* Adicionar estilos para skeleton */
-.skeleton .lang-icon,
+/*.skeleton .lang-icon,
 .skeleton h3,
 .skeleton p,
 .skeleton .btn {
@@ -499,7 +551,7 @@ footer {
     width: 100px;
     height: 36px;
 }
-
+*/
 @keyframes shimmer {
     0% { background-position: -200% 0; }
     100% { background-position: 200% 0; }

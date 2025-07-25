@@ -153,64 +153,107 @@ const footerData = {
     ]
 };
 
-// Função para renderizar os programas
+// Adicionar paginação
+let currentPage = 1;
+const programsPerPage = 6;
+
+// Variável global para armazenar o filtro atual
+let currentFilter = 'all';
+
+// Função renderPrograms atualizada
 function renderPrograms(filter = 'all') {
     const grid = document.getElementById('programs-grid');
     grid.innerHTML = '';
 
-    // Skeleton loading
-    for (let i = 0; i < 6; i++) {
-        grid.innerHTML += `
-            <div class="program-card skeleton">
-                <div class="card-header">
-                    <div class="lang-icon"></div>
-                    <h3></h3>
-                </div>
-                <div class="card-body">
-                  <p></p><p></p><p></p>
-                </div>
-                <div class="card-footer">
-                  <div class="btn"></div>
-                  <div class="btn"></div>
-                </div>
-              </div>
-            `;
-          }
-    setTimeout(() => {
-        grid.innerHTML = '';
+    const filteredPrograms = filter === 'all'
+    ? programsData
+    : programsData.filter(p => p.lang === filter);
 
-        const filteredPrograms = filter === 'all'
-            ? programsData
-            : programsData.filter(p => p.lang === filter);
+    const startIndex = (currentPage - 1) * programsPerPage;
+    const paginatedPrograms = filteredPrograms.slice(startIndex, startIndex + programsPerPage);
 
-        filteredPrograms.forEach(program => {
-            const card = document.createElement('div');
-            card.className = 'program-card';
-            card.dataset.lang = program.lang;
-            card.innerHTML = `
-                <div class="card-header">
-                    <div class="lang-icon ${program.lang}">
-                        <i class="${program.icon}"></i>
-                    </div>
-                    <h3>${program.title}</h3>
-                </div>
-                <div class="card-body">
-                    <p class="primeiro-paragrafo">${program.description}</p>
-                    <p><strong>Versão:</strong> ${program.version}</p>
-                    <p><strong>Data:</strong> ${program.date}</p>
-                </div>
-                <div class="card-footer">
-                    <a href="${program.downloadLink}" class="btn btn-primary" download>
-                        <i class="fas fa-download"></i> Download
-                    </a>
-                    <a href="${program.sourceLink}" class="btn btn-secondary" target="_blank">
-                        <i class="fas fa-code"></i> Source
-                    </a>
-                </div>
-            `;
-            grid.appendChild(card);
+    // Renderizar cards reais (não skeletons)
+    paginatedPrograms.forEach(program => {
+        const card = document.createElement('div');
+        card.className = 'program-card';
+        card.dataset.lang = program.lang;
+        card.innerHTML = `
+        <div class="card-header">
+        <div class="lang-icon ${program.lang}">
+        <i class="${program.icon}"></i>
+        </div>
+        <h3>${program.title}</h3>
+        </div>
+        <div class="card-body">
+        <p class="primeiro-paragrafo">${program.description}</p>
+        <p><strong>Versão:</strong> ${program.version}</p>
+        <p><strong>Data:</strong> ${program.date}</p>
+        </div>
+        <div class="card-footer">
+        <a href="${program.downloadLink}" class="btn btn-primary" download>
+        <i class="fas fa-download"></i> Download
+        </a>
+        <a href="${program.sourceLink}" class="btn btn-secondary" target="_blank">
+        <i class="fas fa-code"></i> Source
+        </a>
+        </div>
+        `;
+        grid.appendChild(card);
+    });
+
+    renderPagination(filteredPrograms.length);
+}
+
+// Função renderPagination atualizada
+// Função para renderizar a paginação (corrigida)
+function renderPagination(totalPrograms) {
+    // Remover paginação existente
+    const existingPagination = document.querySelector('.pagination');
+    if (existingPagination) {
+        existingPagination.remove();
+    }
+
+    const totalPages = Math.ceil(totalPrograms / programsPerPage);
+    if (totalPages <= 1) return; // Não mostrar paginação se só tiver 1 página
+
+    const pagination = document.createElement('div');
+    pagination.className = 'pagination';
+
+    // Botão Anterior
+    if (currentPage > 1) {
+        const prevBtn = document.createElement('button');
+        prevBtn.innerHTML = '&laquo;';
+        prevBtn.addEventListener('click', () => {
+            currentPage--;
+            renderPrograms(currentFilter);
         });
-    }, 300);
+        pagination.appendChild(prevBtn);
+    }
+
+    // Botões de página
+    for (let i = 1; i <= totalPages; i++) {
+        const btn = document.createElement('button');
+        btn.textContent = i;
+        btn.classList.toggle('active', i === currentPage);
+        btn.addEventListener('click', () => {
+            currentPage = i;
+            renderPrograms(currentFilter);
+        });
+        pagination.appendChild(btn);
+    }
+
+    // Botão Próximo
+    if (currentPage < totalPages) {
+        const nextBtn = document.createElement('button');
+        nextBtn.innerHTML = '&raquo;';
+        nextBtn.addEventListener('click', () => {
+            currentPage++;
+            renderPrograms(currentFilter);
+        });
+        pagination.appendChild(nextBtn);
+    }
+
+    document.getElementById('programs').appendChild(pagination);
 }
 
 // Função para renderizar as habilidades
@@ -336,3 +379,64 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(card);
     });
 });
+
+// Inicialização melhorada
+function init() {
+    renderPrograms();
+    renderSkills();
+    renderFooter();
+    setupEventListeners();
+    setupIntersectionObserver(); // Adicionar esta linha
+}
+
+function setupIntersectionObserver() {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, { threshold: 0.1 });
+
+    // Observar os cards após serem renderizados
+    setTimeout(() => {
+        document.querySelectorAll('.program-card, .skill-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+    }, 100);
+}
+
+function smoothScroll(e) {
+    e.preventDefault();
+    const targetId = this.getAttribute('href');
+    const targetElement = document.querySelector(targetId);
+    window.scrollTo({
+        top: targetElement.offsetTop - 80,
+        behavior: 'smooth'
+    });
+}
+
+function setupIntersectionObserver() {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.program-card, .skill-card').forEach(card => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(20px)';
+        card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(card);
+    });
+}
+
+// Iniciar aplicação
+document.addEventListener('DOMContentLoaded', init);
