@@ -162,6 +162,7 @@ let currentFilter = 'all';
 
 // Função renderPrograms atualizada
 function renderPrograms(filter = 'all') {
+    currentFilter = filter;
     const grid = document.getElementById('programs-grid');
     grid.innerHTML = '';
 
@@ -172,7 +173,6 @@ function renderPrograms(filter = 'all') {
     const startIndex = (currentPage - 1) * programsPerPage;
     const paginatedPrograms = filteredPrograms.slice(startIndex, startIndex + programsPerPage);
 
-    // Renderizar cards reais (não skeletons)
     paginatedPrograms.forEach(program => {
         const card = document.createElement('div');
         card.className = 'program-card';
@@ -203,9 +203,7 @@ function renderPrograms(filter = 'all') {
 
     renderPagination(filteredPrograms.length);
 }
-
-// Função renderPagination atualizada
-// Função para renderizar a paginação (corrigida)
+// Função para renderizar a paginação
 function renderPagination(totalPrograms) {
     // Remover paginação existente
     const existingPagination = document.querySelector('.pagination');
@@ -345,6 +343,7 @@ document.addEventListener('DOMContentLoaded', () => {
         button.addEventListener('click', () => {
             filterButtons.forEach(btn => btn.classList.remove('active'));
             button.classList.add('active');
+            currentPage = 1; // Resetar para primeira página
             renderPrograms(button.dataset.filter);
         });
     });
