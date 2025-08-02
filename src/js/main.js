@@ -98,6 +98,39 @@ const programsData = [
         date: "13/04/2025",
         downloadLink: "https://github.com/JP-Linux/Calculadora-Obstetrica/archive/refs/heads/main.zip",
         sourceLink: "https://github.com/JP-Linux/Calculadora-Obstetrica"
+    },
+    {
+        id: 10,
+        title: "Filtrador de Listas M3U (IPTV)",
+        lang: "python",
+        icon: "fab fa-python",
+        description: "Um script Python que filtra listas M3U, verificando cada stream através de testes reais de reprodução com FFmpeg para garantir que apenas links funcionais sejam mantidos.",
+        version: "1.0.0",
+        date: "01/08/2025",
+        downloadLink: "https://github.com/JP-Linux/filtro-m3u/archive/refs/heads/main.zip",
+        sourceLink: "https://github.com/JP-Linux/filtro-m3u"
+    },
+    {
+        id: 11,
+        title: "Corrida de Cachorros",
+        lang: "cpp",
+        icon: "fab fa-c",
+        description: "Um jogo de terminal onde você pode apostar em corridas de cachorros! Gerencie seu saldo, escolha seu cachorro favorito e assista à corrida animada no terminal.",
+        version: "1.0.0",
+        date: "28/07/2025",
+        downloadLink: "https://github.com/JP-Linux/corrida-cachorros/archive/refs/heads/main.zip",
+        sourceLink: "https://github.com/JP-Linux/corrida-cachorros"
+    },
+    {
+        id: 12,
+        title: "Admin Usuários e Grupos (Linux)",
+        lang: "shell",
+        icon: "fab fa-linux",
+        description: "Ferramenta interativa para gestão avançada de usuários e grupos em sistemas Linux com controle de acesso granular.",
+        version: "1.0.0",
+        date: "18/04/2025",
+        downloadLink: "https://github.com/JP-Linux/gestao_usuarios/archive/refs/heads/main.zip",
+        sourceLink: "https://github.com/JP-Linux/gestao_usuarios"
     }
 ];
 
